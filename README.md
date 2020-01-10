@@ -12,11 +12,14 @@ After completing this lab, you will be able to:
 -  Configure networking settings of Azure VMs running Windows and Linux operating systems
 -  Deploy and configure Azure VM scale sets
 
+---
+
 ### Exercise 1: Deploy Azure VMs by using the Azure portal, Azure PowerShell, and Azure Resource Manager templates
 
-#### Deploy an Azure VM running `Windows Server 2016 Datacenter` into an availability set by using the Azure portal
+#### Task 1: Deploy an Azure VM running `Windows Server 2016 Datacenter` into an availability set by using the Azure portal
 
-  - Resource group: `az1000301-RG`
+Deploy below VM with an availability set, in a new resouce group called `az1000301-RG`.
+
   - Virtual machine
     - Name: `az1000301-vm0`
     - Image: `[smalldisk] Windows Server 2016 Datacenter`
@@ -36,9 +39,9 @@ After completing this lab, you will be able to:
   - Monitoring
     - Boot diagnostics: `Off`
 
-Wait for the deployment to complete before you proceed to the next task. This should take about 5 minutes.
+*Wait for the deployment to complete before you proceed to the next task. This should take about 5 minutes.*
 
-#### Deploy an Azure VM running `Windows Server 2016 Datacenter` into the existing availability set by using Azure PowerShell
+#### Task 2: Deploy an Azure VM running `Windows Server 2016 Datacenter` into the existing availability set by using Azure PowerShell
 
 Run below commands to setup the prerequisite for the VM.
 ```
@@ -79,13 +82,17 @@ New-AzVM -ResourceGroupName $resourceGroup.ResourceGroupName -Location $location
 ```
 
 
-#### Deploy two Azure VMs running Linux into an availability set by using an Azure Resource Manager template
+#### Task 3: 
+Deploy two Azure VMs running Linux into an availability set by using an Azure Resource Manager template
 
-Create a new resource group named `az1000302-RG`
+1. Create a new resource group named `az1000302-RG`
+2. Through the GUI deploy the template + parameters files from the link below.
 
-Through the GUI deploy this template + parameters files. https://github.com/MicrosoftLearning/AZ-103-MicrosoftAzureAdministrator/tree/master/Allfiles/Labfiles/Module_02/Deploy_and_Manage_Virtual_Machines
+https://github.com/MicrosoftLearning/AZ-103-MicrosoftAzureAdministrator/tree/master/Allfiles/Labfiles/Module_02/Deploy_and_Manage_Virtual_Machines
 
-Wait for the deployment to complete before you proceed to the next task. This should take about 5 minutes.
+*Wait for the deployment to complete before you proceed to the next task. This should take about 5 minutes.*
+
+---
 
 ### Exercise 2: Configure networking settings of Azure VMs running Windows and Linux operating systems
 
@@ -97,7 +104,7 @@ Wait for the deployment to complete before you proceed to the next task. This sh
 #### Task 2: Connect to an Azure VM running Windows Server 2016 Datacenter via a public IP address
 
 1. Change the inbound port rules on VM `az1000301-vm0` to allow `3389/tcp`.
-1. Use RDP to connect to `az1000301-vm0` 
+1. Use RDP to connect to `az1000301-vm0` with credentials: `Student:Pa55w.rd1234`
 
 #### Task 3: Connect to an Azure VM running Linux Ubuntu Server via a private IP address
 
@@ -114,8 +121,7 @@ Nope.. The GUI will validate the DNS name upon creation.
 
 #### Task 2: Deploy an Azure VM scale set
 
-1. Create a new resource group `az1000303-RG`
-1. Create a Virtual machine scale set with a Load Balancer and the following properties, in above resource group.
+1. Create a Virtual machine scale set with a Load Balancer, in a new resource group called `az1000303-RG`, with below properties.
     - Name: `az1000303vmss0`
     - Image: `Windows Server 2016 Datacenter`
     - Username: `Student`
@@ -123,15 +129,38 @@ Nope.. The GUI will validate the DNS name upon creation.
     - Instance count: `1`
     - Instance size: `Standard DS2 v2`
     - Public IP address name: `az1000303vmss0-ip`
-    - Virtual Network Properties
+    - Create a new Virtual Network
       - Name: `az1000303-vnet0`
       - Address range: `10.203.0.0/16`
       - Subnet name: `subnet0`
       - Subnet address range: `10.203.0.0/24`
     - Inbound traffic on `80/tcp` should be allowed. 
 
-Wait for the deployment to complete before you proceed to the next task. This should take about 5 minutes.
+*Wait for the deployment to complete before you proceed to the next task. This should take about 5 minutes.*
+
+---
 
 ### Task 3: Install IIS on a scale set VM by using DSC extensions
 
-Coming soon..
+Add the PowerShell Desired State Configuration extension to the newly created Scale Set.  
+Upload the file `az-100-03_install_iis_vmss.zip` from below link to the "Configuration Modules or Script" input field.  
+https://microsoftlearning.github.io/AZ-103-MicrosoftAzureAdministrator/Instructions/Labs/02a%20-%20Deploy%20and%20Manage%20Virtual%20Machines%20(az-100-03).html
+
+Fill in the rest of the input fields.
+- Module-qualified Name of Configuration: `az-100-03_install_iis_vmss.ps1\IISInstall`
+- Data Collection: disabled
+- Version: 2.76
+- Auto Upgrade Minor Version: Yes
+
+The extension is setup. Now you just need to upgrade the Scale Set Instances.  
+*The update will trigger installtion of the DSC configuration script. Wait for upgrade to complete. This should take about 5 minutes.*
+
+When the installation is complete, find the public IP of the Scale Set and paste in your browser to verify the default IIS home page.
+
+Boom, you're done!
+
+### Clean Up
+
+```
+az group list --query "[?starts_with(name,'az1000')].name" --output tsv | xargs -L1 bash -c 'az group delete --name $0 --no-wait --yes'
+```
