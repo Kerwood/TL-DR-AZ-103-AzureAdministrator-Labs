@@ -16,10 +16,12 @@ Make sure the following Resource Providers are enabled on your subscription.
 - Microsoft.Compute
 - Microsoft.Storage
 
-Create a new resource group named `az1000201-RG` and deploy the environment.
+Run the below code in the Cloud Shell.
 ```
+# Create a new resource group
 New-AzResourceGroup -Name az1000201-RG -l westeurope
 
+# Deploy environment
 New-AzResourceGroupDeployment `
   -ResourceGroupName az1000201-RG `
   -TemplateUri https://raw.githubusercontent.com/MicrosoftLearning/AZ-103-MicrosoftAzureAdministrator/master/Allfiles/Labfiles/Module_03/Implement_and_Manage_Storage/az-100-02_azuredeploy.json `
@@ -80,7 +82,7 @@ Copy the content of the container between the storage accounts.
 azcopy cp $containerToken1 $containerToken2 --recursive=true
 ```
 
-Go to the second storage account and verify the container `az1000202-container` was created and that the random uploaded data is in the container.
+Go to the second storage account and verify the container `az1000202-container` was created and that the random uploaded data was copied.
 
 #### Task 5: Use a Shared Access Signature (SAS) key to access a blob
 
@@ -91,7 +93,7 @@ Go to the second storage account and verify the container `az1000202-container` 
     - A start and expiration date/time.
     - HTTP Allowed.
 
-1. Copy the generated Blob SAS URL and paste it in your browser again to verify that you now have access to the random file you uploaded.
+1. Copy the generated Blob SAS URL and paste it in your browser again to verify that you do now have access to the random file you uploaded.
 
 ---
 
