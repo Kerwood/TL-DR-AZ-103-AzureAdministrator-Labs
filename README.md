@@ -144,7 +144,7 @@ Nope.. The GUI will validate the DNS name upon creation.
 
 Add the PowerShell Desired State Configuration extension to the newly created Scale Set.  
 Upload the file `az-100-03_install_iis_vmss.zip` from below link to the "Configuration Modules or Script" input field.  
-https://microsoftlearning.github.io/AZ-103-MicrosoftAzureAdministrator/Instructions/Labs/02a%20-%20Deploy%20and%20Manage%20Virtual%20Machines%20(az-100-03).html
+https://github.com/MicrosoftLearning/AZ-103-MicrosoftAzureAdministrator/tree/master/Allfiles/Labfiles/Module_02/Deploy_and_Manage_Virtual_Machines
 
 Fill in the rest of the input fields.
 - Module-qualified Name of Configuration: `az-100-03_install_iis_vmss.ps1\IISInstall`
