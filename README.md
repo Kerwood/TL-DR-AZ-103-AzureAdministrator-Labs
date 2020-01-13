@@ -3,6 +3,8 @@ This is a minified version, without the step by step guide, of the offcial AZ-10
 
 You can find the original documentation here https://github.com/MicrosoftLearning/AZ-103-MicrosoftAzureAdministrator
 
+---
+
 In this repository you will find a Dockerfile to create a image with PowerShell for Linux. It is sourced from the official `mcr.microsoft.com/powershell` image but also adds the following.
 - Azure PowerShell module
 - AzCopy
