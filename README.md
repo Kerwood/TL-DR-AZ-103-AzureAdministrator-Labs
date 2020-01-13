@@ -5,7 +5,7 @@ You can find the original documentation here https://github.com/MicrosoftLearnin
 
 ---
 
-In this repository you will find a Dockerfile to create a image with PowerShell for Linux. It is sourced from the official `mcr.microsoft.com/powershell` image but also adds the following.
+In this repository you will find a Dockerfile to create an image with PowerShell for Linux. It is sourced from the official `mcr.microsoft.com/powershell` image, but adds the following.
 - Azure PowerShell module
 - AzCopy
 - Azure CLI
@@ -39,7 +39,7 @@ Run below command to configure the CLI, eg. set default output format to table.
 az configure
 ```
 
-## Alias
+## Simplify it
 Create an alias in your `~/.bashrc` file to create a docker transparent command for your Azure PowerShell.
 ```
 alias azure-ps='docker run -it --rm -v powershell:/root azure-powershell'
