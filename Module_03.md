@@ -109,8 +109,9 @@ Go to the second storage account and verify the container `az1000202-container` 
 
 1. Navigate to the newly created File Share and get the PowerShell script for connecting a client to the share.
 
-1. Connect to the VM `az1000201-vm1` with RDP and the following credentials: `Student:Pa55w.rd1234`  
-Once connected use the PowerShell script to mount the File Share to the client.
+1. Use RDP and connect to the VM `az1000201-vm1`, with below credentials. Once connected use the PowerShell script to mount the File Share to the client.
+    - Username: `Student`
+    - Password: `Pa55w.rd1234`
 
 1. After mounting the File Share, create a random file on it and validate that it got created on the storage account.
 
