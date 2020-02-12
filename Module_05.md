@@ -87,7 +87,7 @@ Note: The Azure VM az1000401-vm2, which network interface you configured in this
 
 1. Within the Remote Desktop session to `az1000401-vm2`, from Server Manager, select **Tools** start the **Routing and Remote Access** console.
 
-1. In the **Routing and Remote Access** console, right click on the server name and select **Configure and Enable Routing** and **Remote Access**, Select **Next** use the **Custom configuration** then **Next**, enable **LAN routing** then **Next**, click **Finish** and the click **Start Service**.
+1. In the **Routing and Remote Access** console, right click on the server name and select **Configure and Enable Routing and Remote Access**, Select **Next** use the **Custom configuration** then **Next**, enable **LAN routing** then **Next**, click **Finish** and the click **Start Service**.
 
 1. Within the Remote Desktop session to `az1000401-vm2`, start the **Windows Firewall with Advanced Security** console and enable **File and Printer Sharing (Echo Request - ICMPv4-In)** inbound rule for all profiles.
 
