@@ -75,22 +75,22 @@ Navigate to the newly created vault `vaultaz1010102`. In the **Security Settings
 
 #### Task 2: Review Azure VM replication settings
 
-Navigate to the **Replicated items** of `vaultaz1010102`
+1. Navigate to the **Replicated items** of `vaultaz1010102`
 
-On the **Replicated items** blade, ensure that there is an entry representing the `az1010101-vm` Azure VM and verify that its **REPLICATION HEALTH** is **Healthy** and that its **STATUS** is **Enabling protection**.
+    On the **Replicated items** blade, ensure that there is an entry representing the `az1010101-vm` Azure VM and verify that its **REPLICATION HEALTH** is **Healthy** and that its **STATUS** is **Enabling protection**.
 
 
-From the `vaultaz1010102` - Replicated items blade, display the replicated item blade of the `az1010101-vm` Azure VM.
+    From the `vaultaz1010102` - Replicated items blade, display the replicated item blade of the `az1010101-vm` Azure VM.
 
-On the `az1010101-vm` replicated item blade, review the Health and status, Failover readiness, Latest recovery points, and Infrastructure view sections. Note the Failover and Test Failover toolbar icons.
+    On the `az1010101-vm` replicated item blade, review the Health and status, Failover readiness, Latest recovery points, and Infrastructure view sections. Note the Failover and Test Failover toolbar icons.
 
 >Note: The remaining steps of this task are optional.
 
 If time permits, wait until the replication status changes to 100% synchronized. This might take additional 90 minutes.
 
-Examine the values of RPO, as well as Crash-consistent and App-consistent recovery points.
+1. Examine the values of RPO, as well as Crash-consistent and App-consistent recovery points.
 
-Perform a test failover to the `az1010101-vnet-asr` virtual network.
+2. Perform a test failover to the `az1010101-vnet-asr` virtual network.
 
 Boom, you're done!
 
