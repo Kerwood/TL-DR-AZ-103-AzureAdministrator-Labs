@@ -105,11 +105,11 @@ Note: The Azure VM az1000401-vm2, which network interface you configured in this
 
 #### Task 2: Test service chaining between peered virtual networks
 
-1. Use RDP to connect to `az1-1000402-vm3` with credentials: `Student:Pa55w.rd1234`.
+1. Use RDP to connect to `az1000402-vm3` with credentials: `Student:Pa55w.rd1234`.
 
-1. Run below PS command to verify that the path was indeed routed over `10.104.1.4`, which is `az1000401-vm1`.
+1. Run below command to verify that the path was indeed routed over `10.104.1.4`, which is `az1000401-vm1`.
 ```
-Test-NetConnection -ComputerName 10.104.0.4 -TraceRoute
+tracert 10.104.0.4
 ```
 
 >Note: Without custom routing in place, the traffic would flow directly between the two Azure VMs. Result: After you completed this exercise, you have validated service chaining between peered Azure virtual networks.
