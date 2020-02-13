@@ -12,7 +12,7 @@ After completing this lab, you will be able to:
 
 #### Task 1: Deploy Azure VMs, an Azure Storage account, and an Azure SQL Database instance by using Azure Resource Manager templates
 
-Deploy below templates.
+Deploy below templates. Notice the resouce groups are in two different regions as this is needed in this lab.
 ```
 # Create a new resource group
 $rg1 = New-AzResourceGroup -Name az1010301b-RG -l westeurope
@@ -34,6 +34,8 @@ New-AzResourceGroupDeployment `
   -TemplateParameterUri https://raw.githubusercontent.com/MicrosoftLearning/AZ-103-MicrosoftAzureAdministrator/master/Allfiles/Labfiles/Module_06/Network_Watcher/az-101-03b_02_azuredeploy.parameters.json `
   -AsJob
   ```
+
+Wait for the jobs to finish.
 
 #### Task 2: Enable Azure Network Watcher service
 
@@ -72,7 +74,7 @@ New-AzResourceGroupDeployment `
       - Name: `az1010301b-vnet1`
       - Subscription: *The name of the subscription you are using in this lab*
       - Virtual network: `az1010301b-vnet1`
-      - Subnet name: `subnet0/10.203.0.0/24`
+      - Subnet name: `subnet0/ 10.203.0.0/24`
 
 ---
 

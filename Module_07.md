@@ -33,7 +33,7 @@ New-AzResourceGroupDeployment `
 Search the Market Place for **Backup and Site Recovery** and create a **Recovery Services vault**.
 
 - Subscription: *The same Azure subscription you used in the previous task of this exercise*
-- Resource group: The name of a new resource group `az1010102-RG`
+- Resource group: The name of a **new** resource group `az1010102-RG`
 - Vault name: `vaultaz1010102`
 - Region: *The name of an Azure region that is available in your subscription and which is different from the region you deployed the Azure VM in the previous task of this exercise.*
 
@@ -51,7 +51,7 @@ Navigate to the newly created vault `vaultaz1010102`. In the **Security Settings
 
     - Source
         - Source: `Azure`
-        - Source location: *The same Azure region into which you deployed the Template in the previous exercise of this lab*
+        - Source location: *The same Azure region into which you deployed your Template in the previous exercise of this lab*
         - Azure virtual machine deployment model: `Resource Manager`
         - Source subscription: *The same Azure subscription you used in the previous exercise of this lab*
         - Source resource group: `az1010101-RG`
@@ -60,7 +60,7 @@ Navigate to the newly created vault `vaultaz1010102`. In the **Security Settings
         - Virtual machines: `az1010101-vm`
 
     - Settings
-        - Target location: *The name of an Azure region that is available in your subscription and which is different from the region you deployed Template in the previous task. If possible, use the same Azure region into which you deployed the Azure Site Recovery vault.*
+        - Target location: *The name of an Azure region that is available in your subscription and which is different from the region you deployed your Template in, in the previous task. If possible, use the same Azure region into which you deployed the Azure Site Recovery vault.*
         - Target resource group: `(new) az1010101-RG-asr`
         - Target virtual network: `(new) az1010101-vnet-asr`
         - Cache storage account: *Accept the default setting*
