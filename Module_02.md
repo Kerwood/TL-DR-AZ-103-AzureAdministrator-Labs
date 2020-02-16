@@ -14,7 +14,7 @@ After completing this lab, you will be able to:
 
 #### Task 1: Deploy an Azure VM running `Windows Server 2016 Datacenter` into an availability set by using the Azure portal
 
-Deploy below VM with an availability set, in a new resouce group called `az1000301-RG`.
+Deploy below VM with an availability set, in a new resouce group called `az1000301-RG`. Hint: To get the `[smalldisk]` version, you need deploy the *Windows Server* via the Marketplace.
 
   - Virtual machine
     - Name: `az1000301-vm0`
