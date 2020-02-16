@@ -68,6 +68,7 @@ New-AzResourceGroupDeployment `
     - Virtual machine: `az1010301w-vm1`
     - Network IP configuration: `az1010301w-nic1/ipconfig1 (10.101.31.5)`
 
+
     >Note: It is possible that the IP addresses of the Azure VMs are assigned in the reverse order.
 
     >Note: Wait for the operation to complete. This should take less than a minute.
